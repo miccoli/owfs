@@ -11,7 +11,7 @@ static void add_lcd_device() {
 
 // Fake line write function
 static ZERO_OR_ERROR FS_w_lineX_FAKE(struct one_wire_query *owq) {
-
+	return 0;
 }
 
 // Setup a query for the above LCD device, property /line20.ALL

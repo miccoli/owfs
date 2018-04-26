@@ -22,11 +22,11 @@ addons:
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install swig; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install php; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install check; fi
 
 before_script:
   - ./bootstrap
 
 script:
   - ./configure && make -j 2
-# libcheck no present
-#  - make check
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make check; fi
