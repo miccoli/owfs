@@ -4,9 +4,7 @@ os:
   - linux
   - osx
 
-dist:
-  - trusty
-  - xenial
+dist: trusty
 
 # osx_image: xcode9.3 # fail install of php
 osx_image: xcode9.2
@@ -15,6 +13,9 @@ compiler:
   - clang
   - gcc
 
+php:
+  - '5.6'
+  - '7.1'
 
 addons:
   apt:
@@ -24,7 +25,7 @@ addons:
 # Only have libusb-dev 0.1.. we want 0.9.1+
 #    - libusb-dev
     - libavahi-client-dev
-    - swig
+    - swig3.0
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install swig; fi
