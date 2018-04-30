@@ -36,5 +36,7 @@ before_script:
   - ./bootstrap
 
 script:
-  - ./configure && make -j 2
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; ./configure SWIG=/usr/bin/swig3.0
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; ./configure
+  - make -j 2
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make check; fi
