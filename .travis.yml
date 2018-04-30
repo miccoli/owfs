@@ -26,6 +26,7 @@ addons:
 #    - libusb-dev
     - libavahi-client-dev
     - swig3.0
+    - fuse
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install swig; fi
