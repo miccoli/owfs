@@ -15,6 +15,6 @@ EXTRA_DIST = \
 do_subst = sed -e 's,[@]bindir[@],$(bindir),g'
 
 % :: %.in
-	$(do_subst) < $(srcdir)/$< > $@
+	$(do_subst) < $< > $@
 
 $(systemdsystemunit_DATA): Makefile

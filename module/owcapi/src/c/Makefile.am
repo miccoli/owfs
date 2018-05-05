@@ -15,8 +15,8 @@ else
 endif
 endif
 
-AM_CFLAGS = -I../include \
-	-I../../../owlib/src/include \
+AM_CFLAGS = -I$(srcdir)/../include \
+	-I$(srcdir)/../../../owlib/src/include \
 	-L../../../owlib/src/c \
 	-fexceptions \
 	-Wall \

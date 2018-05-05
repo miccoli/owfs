@@ -244,7 +244,7 @@ endif
 #	-export-dynamic \
 #	$(LDADDS)
 
-AM_CFLAGS = -I../include \
+AM_CFLAGS = -I$(srcdir)/../include \
 	-fexceptions \
 	-Wall \
 	-W \

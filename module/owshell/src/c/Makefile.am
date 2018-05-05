@@ -33,8 +33,8 @@ owusbprobe_SOURCES = ${COMMON_OWSHELL_SOURCE} \
                owusbprobe.c
 owusbprobe_LDFLAGS = ${LIBUSB_LIBS}
 
-AM_CFLAGS = -I../include \
-	-I../../../owlib/src/include \
+AM_CFLAGS = -I$(srcdir)/../include \
+	-I$(srcdir)/../../../owlib/src/include \
 	-fexceptions \
 	-Wall \
 	-W \
