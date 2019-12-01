@@ -1,4 +1,4 @@
-name: compile
+name: test
 
 on: [push]
 
@@ -10,3 +10,5 @@ jobs:
       run: |
         echo "${{ toJson(runner) }}"
         dpkg -l | grep php
+        echo "php" $(php-config --php-binary) $(php-config --version)
+        echo "include" $(php-config --includes)
