@@ -1,0 +1,12 @@
+name: compile
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: echo debug info
+      run: |
+        echo "${{ toJson(runner) }}"
+        dpkg -l | grep php
