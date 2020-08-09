@@ -1,9 +1,9 @@
 name: test
 
-on: [push, create]
+on: [push, release]
 
 jobs:
-  build:
+  debug-info:
     runs-on: ubuntu-latest
     steps:
     - name: echo debug info
