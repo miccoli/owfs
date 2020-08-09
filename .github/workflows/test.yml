@@ -1,14 +1,12 @@
 name: test
 
-on: [push]
+on: [push, create]
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - name: echo debug info
       run: |
         echo "${{ toJson(runner) }}"
-        dpkg -l | grep php
-        echo "php" $(php-config --php-binary) $(php-config --version)
-        echo "include" $(php-config --includes)
+        printenv | sort
