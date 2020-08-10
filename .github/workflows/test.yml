@@ -3,6 +3,25 @@ name: test
 on: [push, release]
 
 jobs:
+
+  build:
+    runs-on: ${{ matrix.os }}-20.04
+    strategy:
+      matrix:
+        include:
+        - os: ubuntu
+          env: CC=/usr/bin/clang-9 CXX=/usr/bin/clang++-9
+        - os: ubuntu
+          env: CC=/usr/bin/gcc-7 CXX=/usr/bin/g++-7
+        - os: ubuntu
+          env: CC=/usr/bin/gcc-8 CXX=/usr/bin/g++-8
+        - os: ubuntu
+          env: CC=/usr/bin/gcc-9 CXX=/usr/bin/g++-9
+        - os: ubuntu
+          env: CC=/usr/bin/gcc-10 CXX=/usr/bin/g++-10
+      steps:
+        - run: ${CC} --version
+
   debug-info:
     runs-on: ubuntu-latest
     steps:
