@@ -19,8 +19,8 @@ jobs:
           env: CC=/usr/bin/gcc-9 CXX=/usr/bin/g++-9
         - os: ubuntu
           env: CC=/usr/bin/gcc-10 CXX=/usr/bin/g++-10
-      steps:
-        - run: ${CC} --version
+    steps:
+      - run: ${CC} --version
 
   debug-info:
     runs-on: ubuntu-latest
