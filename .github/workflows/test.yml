@@ -20,7 +20,9 @@ jobs:
         - os: ubuntu
           env: CC=/usr/bin/gcc-10 CXX=/usr/bin/g++-10
     steps:
-      - run: ${CC} --version
+      - run: |
+        export ${{ matrix.env }}
+        ${CC} --version
 
   debug-info:
     runs-on: ubuntu-latest
