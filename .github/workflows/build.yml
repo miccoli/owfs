@@ -53,6 +53,17 @@ jobs:
         name: source-dist
         path: owfs-*.*p*.tar.gz
 
+  distcheck:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: bootstrap
+      run: ./bootstrap
+    - name: configure
+      run: ./configure
+    - name: make distcheck
+      run: make distcheck
+
   build-from-dist:
     needs: dist
     runs-on: ubuntu-latest
