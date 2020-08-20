@@ -12,9 +12,9 @@ EXTRA_DIST = \
         owserver.service.in \
         owserver.socket.in
 
-do_subst = sed -e 's,[@]bindir[@],$(bindir),g'
+do_subst = sed -e 's|[@]bindir[@]|$(bindir)|g'
 
 % :: %.in
-	$(do_subst) < $< > $@
+	$(do_subst) $< > $@
 
 $(systemdsystemunit_DATA): Makefile
