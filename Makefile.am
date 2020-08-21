@@ -1,4 +1,5 @@
 ACLOCAL_AMFLAGS = -I src/scripts/m4
+AM_DISTCHECK_CONFIGURE_FLAGS = "--with-perl5=no"
 
 SUBDIRS = src module
 RPMMACROS = ${HOME}/.rpmmacros
