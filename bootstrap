@@ -9,4 +9,9 @@ case $(uname) in
 esac
 
 rm -rf *cache
-$LZ -f -c -i && aclocal && autoheader && autoconf && automake -a -c --foreign && echo "Run './configure' and 'make' to build owfs"
+$LZ -f -c -i \
+	&& aclocal \
+	&& autoheader \
+	&& autoconf \
+	&& automake -a -c --foreign -Woverride \
+	&& echo "Run './configure' and 'make' to build owfs"
