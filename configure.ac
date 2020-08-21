@@ -56,6 +56,12 @@ AM_INIT_AUTOMAKE(${PACKAGE}, ${VERSION})dnl
 PKG_PROG_PKG_CONFIG
 PKG_INSTALLDIR
 
+#
+# define the directory structure of the build system
+#
+AC_SUBST([OWLIB_INC], ['$(top_srcdir)/module/owlib/src/include'])
+AC_SUBST([OWLIB_LD], ['$(top_builddir)/module/owlib/src/c'])
+
 # Process config.h.in
 AH_TOP([
 #ifndef OWCONFIG_H

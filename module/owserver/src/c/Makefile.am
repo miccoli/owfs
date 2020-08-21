@@ -23,15 +23,14 @@ owserver_SOURCES = owserver.c    \
                    md5.c         \
                    ping.c
 
-owserver_DEPENDENCIES = ../../../owlib/src/c/libow.la
+owserver_DEPENDENCIES = $(OWLIB_LD)/libow.la
 
 owexternal_SOURCES = $(owserver_SOURCES)
 
 owexternal_DEPENDENCIES = $(owserver_DEPENDENCIES)
 
 AM_CFLAGS = -I$(srcdir)/../include \
-	-I$(srcdir)/../../../owlib/src/include \
-	-L../../../owlib/src/c \
+	-I$(OWLIB_INC) \
 	-fexceptions \
 	-Wall \
 	-W \
@@ -45,6 +44,8 @@ AM_CFLAGS = -I$(srcdir)/../include \
 	${PTHREAD_CFLAGS} \
 	${LIBAVAHI_CFLAGS} \
 	${EXTRACFLAGS}
+
+AM_LDFLAGS = -L$(OWLIB_LD)
 
 LDADD = -low ${PTHREAD_LIBS} ${LD_EXTRALIBS} ${OSLIBS}
 

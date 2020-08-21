@@ -1,4 +1,4 @@
-libowcapi_la_DEPENDENCIES = ../../../owlib/src/c/libow.la
+libowcapi_la_DEPENDENCIES = $(OWLIB_LD)/libow.la
 
 lib_LTLIBRARIES = libowcapi.la
 
@@ -7,17 +7,14 @@ libowcapi_la_SOURCES = owcapi.c
 if HAVE_CYGWIN
  libowcapi_la_LDFLAGS = -low ${LD_EXTRALIBS} -shared -no-undefined 
 else
-if HAVE_DEBIAN
-# Debian patch
- libowcapi_la_LDFLAGS = -low -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -release $(LT_RELEASE) ${PTHREAD_LIBS} ${LD_EXTRALIBS} -shared -shrext .so
-else
- libowcapi_la_LDFLAGS = -low -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -release $(LT_RELEASE) ${PTHREAD_LIBS} ${LD_EXTRALIBS} -shared -shrext .so
-endif
+ libowcapi_la_LDFLAGS = -L$(OWLIB_LD) -low \
+	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+	-release $(LT_RELEASE) ${PTHREAD_LIBS} ${LD_EXTRALIBS} \
+	-shared -shrext .so
 endif
 
 AM_CFLAGS = -I$(srcdir)/../include \
-	-I$(srcdir)/../../../owlib/src/include \
-	-L../../../owlib/src/c \
+	-I$(OWLIB_INC) \
 	-fexceptions \
 	-Wall \
 	-W \
@@ -34,4 +31,3 @@ AM_CFLAGS = -I$(srcdir)/../include \
 	${LIBUSB_CFLAGS} \
 	${LIBAVAHI_CFLAGS} \
 	${PIC_FLAGS}
-
